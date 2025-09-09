@@ -6,12 +6,21 @@ import { App } from './app';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ProductComponent } from './product-component/product-component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HomeCompoment } from './home-compoment/home-compoment';
+import { FooterComponent } from './footer-component/footer-component';
+import { NavBarComponent } from './nav-bar-component/nav-bar-component';
+import { ClientComponent } from './client-component/client-component';
+import { provideHttpClient } from '@angular/common/http';
 
 
 @NgModule({
   declarations: [
     App,
-    ProductComponent
+    ProductComponent,
+    HomeCompoment,
+    FooterComponent,
+    NavBarComponent,
+    ClientComponent
   ],
   imports: [
     BrowserModule,
@@ -20,7 +29,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule
   ],
   providers: [
-    provideBrowserGlobalErrorListeners()
+    provideBrowserGlobalErrorListeners(),
+    provideHttpClient()
   ],
   bootstrap: [App]
 })
