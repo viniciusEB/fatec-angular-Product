@@ -17,18 +17,6 @@
       "name": "Product 3",
       "price": 30.99,
       "description": "Description for Product 3"
-    },
-    {
-      "id": 4,
-      "name": "1",
-      "description": "1",
-      "price": "1"
-    },
-    {
-      "id": 5,
-      "name": "2",
-      "description": "2",
-      "price": "2"
     }
   ]
 }

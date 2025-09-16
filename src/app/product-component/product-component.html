@@ -1,16 +1,16 @@
 <div class="container">
 
   <div class="display-4 text-center">Cadastro de Produto</div>
-  
-  
+
+
 
   <form [formGroup]="formGroupProduct">
-   
-   <div class="mb-3">
+
+    <div class="mb-3">
       <label for="inputName" class="form-label">Nome</label>
-      <input formControlName="name"  type="text" class="form-control" id="inputName">
+      <input formControlName="name" type="text" class="form-control" id="inputName">
     </div>
-    
+
     <div class="mb-3">
       <label for="inputDescription" class="form-label">Descrição</label>
       <input formControlName="description" type="text" class="form-control" id="inputDescription">
@@ -18,35 +18,44 @@
 
     <div class="mb-3">
       <label for="inputPrice" class="form-label">Preço</label>
-      <input formControlName="price"   type="text" class="form-control" id="inputPrice">
+      <input formControlName="price" type="text" class="form-control" id="inputPrice">
     </div>
-  
-    <button type="submit" class="btn btn-primary" (click)="save()"    >Salvar</button>
+
+    <button *ngIf="!isEditing" type="submit" class="btn btn-primary" (click)="save()">Salvar</button>
+     <button *ngIf="isEditing" class="btn btn-primary"  (click)="update()"   >Atualizar</button>
+
   </form>
 
+  <div class="display-4 text-center">Produtos Cadastrados</div>
   Total de produtos: {{products.length}}
 
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Nome</th>
-      <th scope="col">Descrição</th>
-      <th scope="col">Preço</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let p of products">
-      <th scope="row">{{p.id}}</th>
-      <td>{{p.name}}</td>
-      <td>{{p.description}}</td>
-      <td>{{p.price}}</td>
-    </tr>
-   
-    
-  </tbody>
-</table>
-
-
-
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Descrição</th>
+        <th scope="col">Preço</th>
+        <th scope="col">remover </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let p of products">
+        <th scope="row">{{p.id}}</th>
+        <td>{{p.name}}</td>
+        <td>{{p.description}}</td>
+        <td>{{p.price}}</td>
+        <td>
+          <button class=" btn btn-danger" (click)="onClickDelete(p)" >
+            remover
+          </button>
+        </td>
+        <td>
+          <button class=" btn btn-warning" (click)="onClickUpdate(p)" >
+            alterar
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
